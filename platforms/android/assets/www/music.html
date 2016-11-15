@@ -1,0 +1,150 @@
+<!DOCTYPE html>
+<html>
+
+<head>
+    <meta charset="utf-8">
+    <meta name="viewport" content="user-scalable=no, initial-scale=1, maximum-scale=1, minimum-scale=1, width=device-width">
+    <title>我的音乐我做主</title>
+    <link rel="stylesheet" href="http://cdn.bootcss.com/bootstrap/3.3.0/css/bootstrap.min.css">
+    <link rel="stylesheet" href="css/music.css">
+    <script src="lib/zepto/zepto.js"></script>
+    <script src="lib/zepto/touch.js"></script>
+    <!-- <script src="http://cdn.bootcss.com/bootstrap/3.3.0/js/bootstrap.min.js"></script> -->
+    <script src="js/music.js"></script>
+</head>
+
+<body>
+    <div class="mm_cont">
+        <div id="header">
+            <header class="m_header">
+                <div class="m_logo"><img src="img/logo.jpg" alt=""></div>
+                <div class="row m_head">
+                    <div class="col-xs-4 ting">听</div>
+                    <div class="col-xs-4 see">看</div>
+                    <div class="col-xs-4 ktv">唱</div>
+                </div>
+                <div class="glyphicon glyphicon-search search"><div class="d_search"><input type="text" /></div></div>
+                
+            </header>
+        </div>
+        <div class="m_content">
+            <div class="m_ku">
+                <div class="kus">
+                    <h3>新歌榜</h3></div>
+                <div class="kus">
+                    <h3>经典老歌</h3></div>
+                <div class="kus">
+                    <h3>网络歌曲榜</h3></div>
+                <div class="kus">
+                    <h3>影视金曲榜</h3></div>
+            </div>
+            <div class="k_content">
+                <ul class="list">
+                    <li class="song">
+                        <div class="left">
+                            <div class="rank">1</div>
+                            <div class="info">
+                                <div>
+                                    <span>我要你 </span>
+                                    <span class="glyphicon glyphicon-music"></span>
+                                </div>
+                                <span class="txt">任素汐</span>
+                            </div>
+                        </div>
+                        <div class="download"><span class="glyphicon glyphicon-plus add"></span><span class=" glyphicon glyphicon-arrow-down down"></span></div>
+                    </li>
+                </ul>
+            </div>
+            <div class="s_content">
+               
+            </div>
+        </div>
+        <!-- <audio src="" id="player"></audio> -->
+        <div id="footer">
+            <footer class="m_footer">
+                <div class="p_icon"><img src="img/logo.jpg" alt=""></div>
+                <div class="play-status">
+                    <progress max="100" value="0"></progress>
+                    <div class="p_paly">
+                        <h3 class="title"><span>好音乐</span><div>近在这里</div></h3>
+                        <div class="p_btn">
+                            <span class="glyphicon glyphicon-play btnpus"></span>
+                            <span class="glyphicon glyphicon-step-forward btnext"></span>
+                            <span class="glyphicon glyphicon-list mixmenu"></span></div>
+                    </div>
+                </div>
+            </footer>
+        </div>
+    </div>
+    <div class="menu">
+        <h4>播放列表<span class="num">0</span><span class="delete glyphicon glyphicon-trash"></span></h4>
+        <ul class="list">
+        </ul>
+    </div>
+    <!-- 左侧菜单 -->
+    <div class="boxLeft">
+        <div class="m_left">
+            <div class="m_lhead">
+                <div class="m_logo"><img src="img/logo.jpg" alt=""></div>
+                <div class="login"><span>登录</span> <span>注册</span></div>
+            </div>
+            <ul class="m_lcont">
+                <li><span class="glyphicon glyphicon-envelope"></span>消息中心</li>
+                <li><span class="glyphicon glyphicon-user"></span>会员中心</li>
+                <li><span class="glyphicon glyphicon-dashboard"></span>定时关闭</li>
+                <li><span class="glyphicon glyphicon-fire"></span>蝰蛇音效</li>
+                <li><span class="glyphicon glyphicon-headphones"></span>听歌识曲</li>
+            </ul>
+            <ul class="m_lcode">
+                <li><span class="glyphicon glyphicon-signal"></span>仅WIFI联网
+                    <input type="checkbox">
+                </li>
+                <li><span class="glyphicon glyphicon-file"></span>桌面歌词
+                    <input type="checkbox">
+                </li>
+                <li><span class="glyphicon glyphicon-lock"></span>锁屏歌词
+                    <input type="checkbox">
+                </li>
+            </ul>
+            <div class="m_lfoot">
+                <div class="set"><span class="glyphicon glyphicon-cog"></span>设置</div>
+                <div class="closes"><span class="glyphicon glyphicon-arrow-right"></span><a style="color:#fff;" href="index.html">退出</a></div>
+            </div>
+        </div>
+    </div>
+<!-- 右侧菜单 -->
+<div class="r_code">
+    <div class="page-header t_head" style="margin: 0;">
+    <span class="glyphicon glyphicon-chevron-left turn"></span>
+        <div class="p_title">我要你</div>
+        <p> 任素汐</p>
+    </div>
+    <div class="mc_content">
+    </div>
+ <!--    <div id="c_footer">
+        <footer class="m_footer">
+            <div class="play-status">
+                <div class="prog">
+                    <progress max="100" value="10"> </progress>
+                    <time class="left" style="color:#fff;">-00:16</time>
+                </div>
+                <div class="p_btn" style="color:#fff;">
+                    <span class="glyphicon glyphicon-refresh"></span>
+                    <span class="glyphicon glyphicon-step-backward"></span>
+                    <span class="glyphicon glyphicon-play"></span>
+                    <span class="glyphicon glyphicon-step-forward"></span>
+                    <span class="glyphicon glyphicon-list mixmenu"></span>
+                </div>
+            </div>
+        </footer>
+    </div -->>
+    <!-- <div class="menu">
+        <h4>播放列表<span class="num">0</span><span class="delete glyphicon glyphicon-trash"></span></h4>
+        <ul class="list">
+        </ul>
+    </div> -->
+    </div>
+
+</body>
+
+</html>

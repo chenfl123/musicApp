@@ -1,0 +1,106 @@
+
+html,body,ul,li,ol,dl,dd,dt,p,h1,h2,h3,h4,h5,h6,form,fieldset,legend,img{margin:0;padding:0}
+fieldset{border:none;}
+img{border:none;display:block;}
+body{font-size:1.2em;height: 100%;width: 100%;}ul,ol{list-style:none}
+a{color:#666;text-decoration:none;font-size:12px}
+span,label{font-size:14px}
+.mm_cont{width: 100%;height: 100%;}
+
+#header{position: fixed;left:0;top: 0;right: 0;z-index: 10;font-size: 1.2em;height:4em;}
+.m_header{display: flex;height: 4em;background: #000;justify-content: center;align-items: center;color: #fff;}
+.m_logo{flex:1;}
+.m_head{flex:3;}
+.search{flex:1;text-align: right;color: #fff;margin-right: 10px;position: relative;}
+.m_logo img{width: 35px;height: 35px;border-radius: 50%;}
+.d_search{display: none; color: #333; position: absolute;bottom: -3em;right:-0.6em;width: 180px;height: 28px;border: 1px solid #dadada;}
+.d_search::after{content: " ";border: 10px solid transparent;width: 1px;height: 1px;border-bottom:10px solid #fff;position: absolute;right: 0;bottom: 1.7em; }
+.d_search input{width: 180px;height: 28px;border: none;}
+.d_search.active{display: block;}
+
+#footer{position: fixed;left:0;bottom: 0;right: 0;padding: 10px;background: #000;z-index: 10;color: #fff;}
+.m_footer{display: flex;height: 4.2em;justify-content: center;align-items: center;}
+.play-status{flex:3;padding: 3px 0;}
+.p_icon{flex:1;}
+.p_icon img{width: 60px;height: 60px;border-radius: 50%;}
+.m_footer progress{width: 260px;height: 4px;}
+
+.play-status .p_paly{width: 260px;height: 35px;display: float;overflow: hidden;}
+.p_paly h3{height: 35px;}
+.p_paly h3 span{font-size: 10px; font-weight: 700;}
+.p_paly h3 div{width: 100px;height: 20px;font-size: 12px;}
+.p_paly .title{float: left;width: 100px;height: 30px;}
+.p_paly .p_btn{float:right;}
+.p_paly .p_btn span{padding:5px 10px 10px;}
+
+.m_content{margin:4.5em 0 5em 0;}
+.m_content .m_ku{display: flex;height: 40px;}
+.m_content .m_ku .kus{border-bottom: 2px solid #dadada;padding: 30px 0; flex:1;height: 40px;display: flex;justify-content: center;align-items: center;}
+.m_content .m_ku h3{width: 80px;height: 40px;background: #f80;border-radius: 50%;text-align: center;line-height: 40px;font-size: 1em;}
+.k_content{margin:2em 0;}
+
+.list li{display: flex;position: relative;padding: 10px;border-bottom: 1px solid #dadada;}
+
+.list li .left{display: flex;flex: 1;}
+.list li .left .rank{flex: 1;}
+.list li .left .info{flex:3;}
+.list li .left .info span{font-size:1.3em;}
+.list li .left .info .txt{font-size: 12px;color: #999;}
+.list li .download{position: absolute;right: 10px;top: 40%;width: 70px;}
+.list li .download span{padding: 0 10px;}
+
+.menu{ background:#000;color: #fff;  position:fixed;left:0;bottom: 10%;right: 0;border-top: 1px solid #dadada;padding: 10px 0 3.3em 0 ;z-index: 22225;display: none;}
+.menu h4{border-bottom: 1px solid #dadada;padding-bottom:5px; color: #08f;position: relative;}
+.menu h4 .num{padding: 0 10px;}
+.menu h4 .delete{position: absolute;right: 16%;top: 40%;}
+.menu .list{overflow-y:auto;height:15em;}
+
+
+.boxLeft{z-index: 1000;position: fixed;left:-100%;bottom: 0;width: 100%;height: 100%;background: rgba(0,0,0,0.1);}
+.m_left{font-size: 1.2em; width: 80%;height: 100%;background: #333;color: #fff;}
+.boxLeft.show{left:0;}
+.m_lhead{display: flex;align-items: center;height: 10%;border-bottom: 1px solid #000;}
+.m_lhead .m_logo{flex: 3;}
+.m_lhead .login{flex: 1;}
+
+.m_lcont{padding: 3.5em 0;border-bottom: 1px solid #000;height: 50%;}
+.m_lcont li{padding: 1em;}
+.m_lcont li span,.m_lcode li span{padding-right: 0.8em;}
+
+.m_lcode{padding: 2.5em 0;border-bottom: 1px solid #000;height: 30%;}
+.m_lcode li{padding: 0.8em;}
+.m_lcode li input{margin: 0 2em;width: 2em;height: 1.2em;}
+
+
+.m_lfoot{display: flex;height: 10%;align-items: center;}
+.m_lfoot .set,.m_lfoot .closes{flex: 1;padding: 10px;}
+.m_lfoot .closes{text-align: right;}
+
+
+.r_code{background:#000;position: fixed;left:100%;top:4em;width: 100%;height: 83%;}
+.r_code.active{left: 0;z-index: 300;}
+.r_code .t_head{color: #fff;}
+.r_code .t_head .p_title{text-align: center;font-size: 1.5em;} 
+.r_code .t_head p{text-align: center;font-size: 1em;}
+.r_code .t_head .turn{padding: 10px;}
+/*#c_footer{padding: 10px;background:#333;z-index: 100;position: fixed;left:0;bottom: 0;right: 0;display: none;}*/
+/*.mc_footer{display: flex;height: 4.2em;justify-content: center;align-items: center;}*/
+/*.mc_foote .play-status{display: flex;flex-direction: column;}*/
+/*.play-status .prog{flex:1;display: flex;flex-direction: row;} 
+.play-status .prog progress{flex: 3;width: 300px;}
+.play-status .prog time{flex: 1;}
+.play-status .p_btn{flex:1;display: flex;flex-direction: row;}
+.play-status .p_btn span{flex: 1;padding-top: 5px;}
+.play-status .p_btn span:last-child{text-align: right;}
+*/
+.r_code .mc_content{color: #fff;line-height: 25px;width:80%;height:80%;font-size: 1.5em;overflow-y: auto;margin: 0 auto;}
+
+/*.r_code .menu{display: none;background:#000;color: #fff; position:fixed;left:0;bottom: 10%;right: 0;padding: 10px 0 3.3em 0 ;z-index:5;}
+.r_code .menu h4{padding-bottom:5px; color: #08f;position: relative;}
+.r_code .menu h4 .num{padding: 0 10px;}
+.r_code .menu h4 .delete{position: absolute;right: 16%;top: 40%;}
+.r_code .menu .list{overflow-y:auto;height:15em;}
+*/
+.s_content{z-index: 200; position: fixed;left:0;right: 0;top: 8%;background: red;width: 100%;height: 82%;display: none;overflow-y: auto;}
+.s_content.active{display: block;background: #fff;}
+

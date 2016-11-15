@@ -1,0 +1,38 @@
+
+html,body,ul,li,ol,dl,dd,dt,p,h1,h2,h3,h4,h5,h6,form,fieldset,legend,img{margin:0;padding:0}
+fieldset{border:none;}
+img{border:none;display:block;}
+body{font-size:1.2em;background:rgba(0,0,0,0.8);}ul,ol{list-style:none;}
+a{color:#666;text-decoration:none;font-size:12px;}
+span,label{font-size:14px;}
+.t_head{color: #fff;}
+.t_head .p_title{text-align: center;font-size: 1.5em;} 
+.t_head p{text-align: center;font-size: 1em;}
+.t_head .turn{padding: 10px;}
+#footer{position: fixed;left:0;bottom: 0;right: 0;padding: 10px;background:#333;z-index: 10;}
+.m_footer{display: flex;height: 4.2em;justify-content: center;align-items: center;}
+.play-status{display: flex;flex-direction: column;}
+.play-status .prog{flex:1;display: flex;flex-direction: row;} 
+.play-status .prog progress{flex: 3;width: 300px;}
+.play-status .prog time{flex: 1;}
+.play-status .p_btn{flex:1;display: flex;flex-direction: row;}
+.play-status .p_btn span{flex: 1;padding-top: 5px;}
+.play-status .p_btn span:last-child{text-align: right;}
+
+.m_content{color: #fff;line-height: 25px;padding: 20px 20px 5em;font-size: 2em;overflow-y: auto;}
+
+.menu{display: none;background:#333;color: #fff; position:fixed;left:0;bottom: 10%;right: 0;padding: 10px 0 3.3em 0 ;z-index:5;}
+.menu h4{padding-bottom:5px; color: #08f;position: relative;}
+.menu h4 .num{padding: 0 10px;}
+.menu h4 .delete{position: absolute;right: 16%;top: 40%;}
+.menu .list{overflow-y:auto;height:15em;}
+
+.list li{display: flex;position: relative;padding: 10px;border-bottom: 1px solid #dadada;}
+
+.list li .left{display: flex;flex: 1;}
+.list li .left .rank{flex: 1;}
+.list li .left .info{flex:3;}
+.list li .left .info span{font-size:1.3em;}
+.list li .left .info .txt{font-size: 12px;color: #999;}
+.list li .download{position: absolute;right: 10px;top: 40%;width: 70px;}
+.list li .download span{padding: 0 10px;}
