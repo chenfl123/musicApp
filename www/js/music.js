@@ -31,6 +31,7 @@ document.addEventListener('DOMContentLoaded', function() {
     var k_content = $('.k_content');
     var m_content = $('.m_content');
     var $search = $('.d_search');
+    var mc_content=$('.mc_content');
     var K_btn = document.querySelectorAll('.kus');
 
     var btnPlay = document.querySelector('.p_btn');
@@ -64,27 +65,27 @@ document.addEventListener('DOMContentLoaded', function() {
     }
 
     // 一开始呈现的是新歌榜歌曲
-    hot(1, 50);
+    hot(1, 30);
     // scrolls(1);
     // 歌榜切换
     K_btn[0].onclick = function() {
-        hot(1, 50);
+        hot(1, 30);
         k_content.css({ background: '#fff' });
         // scrolls(1)
     }
     K_btn[1].onclick = function() {
-        hot(22, 50);
+        hot(22, 30);
         k_content.css({ background: '#850' });
-        scrolls(22)
+        // scrolls(22)
 
     }
     K_btn[2].onclick = function() {
-        hot(25, 50);
+        hot(25, 30);
         k_content.css({ background: '#088' });
         // scrolls(25)
     }
     K_btn[3].onclick = function() {
-        hot(24, 50);
+        hot(24, 30);
         k_content.css({ background: '#38b' });
         // scrolls(24)
     }
@@ -101,7 +102,7 @@ document.addEventListener('DOMContentLoaded', function() {
             },
             dataType: 'jsonp',
             success: function(res) {
-                console.log(res);
+                // console.log(res);
                 var $ul = $('<ul/>').addClass('list');
                 $.each(res.song_list, function(idx, song) {
                     var $li = $('<li/>').attr({ 'data-id': song.song_id });
@@ -142,7 +143,6 @@ document.addEventListener('DOMContentLoaded', function() {
     // 播放歌曲
     var player = new Audio();
     m_content.on('singleTap', '.inPlay', function() {
-        // var $self = $(this);
 
         var song_id = $(this).closest('li').attr('data-id'); //$(this).data('id');
         play(song_id);
@@ -151,6 +151,7 @@ document.addEventListener('DOMContentLoaded', function() {
 
 
     function play(song_id) {
+
         // 发送jsonp请求，得到歌曲信息
         $.ajax({
             url: 'http://tingapi.ting.baidu.com/v1/restserver/ting',
@@ -172,8 +173,9 @@ document.addEventListener('DOMContentLoaded', function() {
                 player.play();
             }
         })
-
         lry(song_id);
+     // 图片旋转效果
+        $('.m_footer img')[0].classList.add('playing');
 
         // 播放状态
         p_btn[0].className = 'glyphicon glyphicon-pause';
@@ -240,11 +242,22 @@ document.addEventListener('DOMContentLoaded', function() {
         setsong.push(prostring);
         localStorage.setItem('setsong', JSON.stringify(setsong));
     })
+     k_content.on('singleTap', '.down', function() {
+         var tLi = $(this).closest('li');
+        var tId = tLi.attr('data-id');
+        // 下载
+        down(tId,24,'1430215999')
+     })
+  
+
+
 
     // 歌曲列表随机点播
     $('.menu .list').on('singleTap', '.inPlay', function() {
         var song_id = $(this).closest('li').attr('data-id'); //$(this).data('id');
         play(song_id);
+     
+        
     })
 
     // 列表中单曲的删除
@@ -260,7 +273,7 @@ document.addEventListener('DOMContentLoaded', function() {
 
 
     // 点击播放的歌曲，跳转到歌词
-    $footer.on('singleTap','.title', function() {
+    $footer.on('singleTap', '.title', function() {
         $('.r_code')[0].classList.add('active');
         // $("#c_footer").css({ display: 'block' })
         // $("#footer").css({ display: 'none' });
@@ -338,12 +351,14 @@ document.addEventListener('DOMContentLoaded', function() {
             success: function(res) {
                 // console.log(res);
                 p_title.html(res.title);
-                $('.mc_content').html(res.lrcContent.replace(/\[/g, '').replace(/\d/g, '').replace(/\]/g, '').replace(/\:/g, '').replace(/\./g, ''));
+            
+                mc_content.html(res.lrcContent.replace(/\[/g, '').replace(/\d/g, '').replace(/\]/g, '').replace(/\:/g, '').replace(/\./g, ''));
+            //     
             }
         })
     }
     // 搜索歌曲
- var s_content = $(".s_content");
+    var s_content = $(".s_content");
     $(".search").on('singleTap', function() {
         $search[0].classList.add('active');
     })
@@ -352,13 +367,13 @@ document.addEventListener('DOMContentLoaded', function() {
         $search[0].classList.remove('active');
         if (this.value != '') {
             search(this.value);
-          
-             this.value='';
-        } 
+
+            this.value = '';
+        }
 
     })
 
-    
+
     function search(word) {
         // 发送jsonp请求，得到歌曲信息
         $.ajax({
@@ -388,22 +403,26 @@ document.addEventListener('DOMContentLoaded', function() {
         })
     }
     // 听、看、唱点击后返回主页
-    $('.ting').on('singleTap',function(){
-           s_content[0].classList.remove('active');
+    $('.ting').on('singleTap', function() {
+        s_content[0].classList.remove('active');
     })
- $('.see').on('singleTap',function(){
-           s_content[0].classList.remove('active');
+    $('.see').on('singleTap', function() {
+        s_content[0].classList.remove('active');
     })
-  $('.ktv').on('singleTap',function(){
-           s_content[0].classList.remove('active');
-    })
-
-  // 进度条
-    eProgress.on('singleTap', function(e) {
-        player.currentTime = (e.offsetX / this.offsetWidth) * player.duration;
+    $('.ktv').on('singleTap', function() {
+        s_content[0].classList.remove('active');
     })
 
-    player.ontimeupdate = function(){
+    // 进度条
+    var strx, enx;
+    eProgress.on('touchstart', function(e) {
+        strx = e.changedTouches[0].pageX;
+        console.log(strx)
+        player.currentTime = ((strx - 88) / this.offsetWidth) * player.duration;
+    })
+
+
+    player.ontimeupdate = function() {
         updateTime();
     }
 
@@ -413,11 +432,29 @@ document.addEventListener('DOMContentLoaded', function() {
         var leftTime = player.duration - player.currentTime;
 
         // 剩余多少分
-        // var minLeft = parseInt(leftTime / 60);
-        // var secLeft = parseInt(leftTime % 60);
+        var minLeft = parseInt(leftTime / 60);
+        var secLeft = parseInt(leftTime % 60);
+        $('.time').html('-' + minLeft + ':' + (secLeft < 10 ? '0' : '') + secLeft);
 
         // 进度条
         eProgress[0].value = player.currentTime / player.duration * 100;
     }
 
+    // method=baidu.ting.song.downWeb&songid=877578&bit=24&_t=1393123213
+    function down(a,n,t) {
+        $.ajax({
+            url: 'http://tingapi.ting.baidu.com/v1/restserver/ting',
+            data: {
+                method: 'baidu.ting.song.downWeb',
+                songid: a,
+                bit: n,
+                _t: t
+            },
+            dataType: 'jsonp',
+            success: function(res) {
+                console.log(res)
+            }
+        })
+    }
+  
 });
